@@ -1,0 +1,17 @@
+[
+    {
+      "imagen": "/noticia1.jpg",
+      "title": "noticia1",
+      "text": "This is a wider card with supporting text below as a natural lead-in to additional content."
+    },
+    {
+      "imagen": "/noticia2.jpg",
+      "title": "noticia2",
+      "text": "This card has supporting text below as a natural lead-in to additional content."
+    },
+    {
+      "imagen": "/noticia3.jpg",
+      "title": "noticia3",
+      "text": "This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action."
+    }
+  ]

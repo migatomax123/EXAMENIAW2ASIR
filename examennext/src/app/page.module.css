@@ -1,0 +1,168 @@
+.page {
+  --gray-rgb: 0, 0, 0; /* Define el color gris en formato RGB */
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08); /* Define un color gris con opacidad 0.08 */
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05); /* Define un color gris con opacidad 0.05 */
+
+  --button-primary-hover: #383838; /* Color de fondo para el botón primario en hover */
+  --button-secondary-hover: #f2f2f2; /* Color de fondo para el botón secundario en hover */
+
+  display: grid; /* Utiliza un diseño de cuadrícula */
+  grid-template-rows: 20px 1fr 20px; /* Define tres filas con alturas de 20px, 1fr (flexible) y 20px */
+  align-items: center; /* Alinea los elementos verticalmente en el centro */
+  justify-items: center; /* Alinea los elementos horizontalmente en el centro */
+  min-height: 100svh; /* Establece una altura mínima del 100% del viewport */
+  padding: 80px; /* Añade un padding de 80px alrededor */
+  gap: 64px; /* Añade un espacio de 64px entre los elementos de la cuadrícula */
+  font-family: var(--font-geist-sans); /* Establece la fuente */
+}
+
+/* Estilos para el modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255; /* Define el color gris en formato RGB para modo oscuro */
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145); /* Define un color gris con opacidad 0.145 para modo oscuro */
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06); /* Define un color gris con opacidad 0.06 para modo oscuro */
+
+    --button-primary-hover: #ccc; /* Color de fondo para el botón primario en hover en modo oscuro */
+    --button-secondary-hover: #1a1a1a; /* Color de fondo para el botón secundario en hover en modo oscuro */
+  }
+}
+
+.main {
+  display: flex; /* Utiliza un diseño flexbox */
+  flex-direction: column; /* Alinea los elementos en una columna */
+  gap: 32px; /* Añade un espacio de 32px entre los elementos */
+  grid-row-start: 2; /* Coloca el elemento en la segunda fila de la cuadrícula */
+}
+
+.main ol {
+  font-family: var(--font-geist-mono); /* Establece la fuente */
+  padding-left: 0; /* Elimina el padding izquierdo */
+  margin: 0; /* Elimina el margen */
+  font-size: 14px; /* Establece el tamaño de la fuente */
+  line-height: 24px; /* Establece la altura de línea */
+  letter-spacing: -0.01em; /* Ajusta el espaciado entre letras */
+  list-style-position: inside; /* Coloca los marcadores de lista dentro del contenido */
+}
+
+.main li:not(:last-of-type) {
+  margin-bottom: 8px; /* Añade un margen inferior de 8px a todos los elementos de lista excepto el último */
+}
+
+.main code {
+  font-family: inherit; /* Hereda la fuente del elemento padre */
+  background: var(--gray-alpha-100); /* Establece el fondo utilizando la variable CSS */
+  padding: 2px 4px; /* Añade un padding de 2px arriba y abajo, y 4px a los lados */
+  border-radius: 4px; /* Redondea las esquinas */
+  font-weight: 600; /* Establece el peso de la fuente */
+}
+
+.ctas {
+  display: flex; /* Utiliza un diseño flexbox */
+  gap: 16px; /* Añade un espacio de 16px entre los elementos */
+}
+
+.ctas a {
+  appearance: none; /* Elimina el estilo por defecto del navegador */
+  border-radius: 128px; /* Redondea las esquinas */
+  height: 48px; /* Establece la altura */
+  padding: 0 20px; /* Añade un padding de 20px a los lados */
+  border: none; /* Elimina el borde */
+  border: 1px solid transparent; /* Añade un borde transparente */
+  transition: background 0.2s, color 0.2s, border-color 0.2s; /* Añade una transición suave para el fondo, color y borde */
+  cursor: pointer; /* Cambia el cursor a un puntero */
+  display: flex; /* Utiliza un diseño flexbox */
+  align-items: center; /* Alinea los elementos verticalmente en el centro */
+  justify-content: center; /* Alinea los elementos horizontalmente en el centro */
+  font-size: 16px; /* Establece el tamaño de la fuente */
+  line-height: 20px; /* Establece la altura de línea */
+  font-weight: 500; /* Establece el peso de la fuente */
+}
+
+a.primary {
+  background: var(--foreground); /* Establece el fondo utilizando la variable CSS */
+  color: var(--background); /* Establece el color del texto utilizando la variable CSS */
+  gap: 8px; /* Añade un espacio de 8px entre los elementos */
+}
+
+a.secondary {
+  border-color: var(--gray-alpha-200); /* Establece el color del borde utilizando la variable CSS */
+  min-width: 180px; /* Establece el ancho mínimo */
+}
+
+.footer {
+  grid-row-start: 3; /* Coloca el elemento en la tercera fila de la cuadrícula */
+  display: flex; /* Utiliza un diseño flexbox */
+  gap: 24px; /* Añade un espacio de 24px entre los elementos */
+}
+
+.footer a {
+  display: flex; /* Utiliza un diseño flexbox */
+  align-items: center; /* Alinea los elementos verticalmente en el centro */
+  gap: 8px; /* Añade un espacio de 8px entre los elementos */
+}
+
+.footer img {
+  flex-shrink: 0; /* Evita que la imagen se reduzca */
+}
+
+/* Habilitar hover solo en dispositivos sin pantalla táctil */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover); /* Cambia el fondo en hover utilizando la variable CSS */
+    border-color: transparent; /* Cambia el color del borde a transparente en hover */
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover); /* Cambia el fondo en hover utilizando la variable CSS */
+    border-color: transparent; /* Cambia el color del borde a transparente en hover */
+  }
+
+  .footer a:hover {
+    text-decoration: underline; /* Añade subrayado en hover */
+    text-underline-offset: 4px; /* Ajusta el offset del subrayado */
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .page {
+    padding: 32px; /* Ajusta el padding */
+    padding-bottom: 80px; /* Ajusta el padding inferior */
+  }
+
+  .main {
+    align-items: center; /* Alinea los elementos horizontalmente en el centro */
+  }
+
+  .main ol {
+    text-align: center; /* Centra el texto */
+  }
+
+  .ctas {
+    flex-direction: column; /* Alinea los elementos en una columna */
+  }
+
+  .ctas a {
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+    height: 40px; /* Ajusta la altura */
+    padding: 0 16px; /* Ajusta el padding */
+  }
+
+  a.secondary {
+    min-width: auto; /* Elimina el ancho mínimo */
+  }
+
+  .footer {
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    justify-content: center; /* Alinea los elementos horizontalmente en el centro */
+  }
+}
+
+/* Estilos para el modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert(); /* Invierte los colores del logo en modo oscuro */
+  }
+}
